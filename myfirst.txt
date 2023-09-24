@@ -1,0 +1,2 @@
+# This is first commit.
+This is the first code i want to commit in my git hub account.
