@@ -1,0 +1,30 @@
+# This is the basic workflow to help you to get started with actions
+name: create_file
+
+#control when the workflow will run
+on:
+# Triggers the workflow on push or pull request events
+ workflow_dispatch:
+  inputs:
+    hostname:
+      description: Nmae of host
+      type: string 
+      required: true
+    account:
+      description: account
+      type: choice
+      options:
+       - Test-Account
+       required: true
+    environment:
+      description: environment
+      type: choice
+      options:
+       - dev
+      required: true
+    region:
+      description: region
+      type: choice
+      options:
+      - us-east-2
+       
