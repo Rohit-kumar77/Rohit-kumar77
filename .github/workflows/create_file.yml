@@ -27,4 +27,41 @@ on:
       type: choice
       options:
       - us-east-2
-       
+
+jobs:
+  Dev_Action:
+    name: Add file
+    runs-on: [self-hosted, account_name]
+    container:
+      image: docker.binrepo.vtxdev.net/cloud-base-images/ubuntu-base-image:latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: terragrunt/${{ github.event.inputs.account }}/${{ github.event.inputs.region }}/${{ github.event.inputs.environment }}/windows
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      # Runs a multi command using the runners shell
+      - name: Run a multi-line script
+        run: |
+          mkdir -p ${{ github.event.inputs.hostname }}/aws_instance
+          cat > ${{ github.event.inputs.hostname }}/aws_instance/terragrunt.hcl <<EOF
+          include {
+              path = find_in_parent_folders()
+            }
+          EOF
+          cat > ${{ github.event.inputs.hostname }}/host.terragrunt.hcl <<EOF
+          locals {
+            new_computer_name = "${{ github.event.inputs.hostname }}-01"
+            instance_name     = "${{ github.event.inputs.hostname }}"
+          }
+          EOF
+
+      - name: Github commit and push
+        uses: Smart-Transportation/push@v1.3
+        with:
+          branch: ${{ github.ref_name }}
