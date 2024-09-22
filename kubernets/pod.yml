@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+mettadata:
+    name: pod1
+    labels:
+       app: nginx
+spec:
+   continers:
+   - name: c1
+     image: nginx
+     
