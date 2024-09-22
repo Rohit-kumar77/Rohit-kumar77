@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-pod
+  labels:
+    env: prod
+spec:
+  containers:
+    - name: myfirstcontainer
+      image: nginx
+  nodeSelector:
+      env: stag
