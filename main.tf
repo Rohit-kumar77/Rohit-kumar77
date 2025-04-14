@@ -19,6 +19,6 @@ resource "aws_instance" "app_server" {
 
   tags = {
     #Name = "ExampleAppServerInstance"
-    Name  = var.Rohit-test123
+    Name  = var.Rohit-test
   }
 }
