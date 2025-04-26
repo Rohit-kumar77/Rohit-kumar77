@@ -1,5 +1,14 @@
-variable "Rohit-test" {
-  description = "Value of the Name tag for the EC2 instance"
-  type        = string
-  default     = "ExampleAppServerInstance"
+variable "region" {
+  type    = string
+  default = "us-east-1"
 }
+
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+
+variable "ami_id" {
+  type = string
+}
+
