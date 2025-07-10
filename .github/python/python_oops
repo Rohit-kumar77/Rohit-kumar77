@@ -1,0 +1,213 @@
+# python oops:- oops stand of object oriented programing 
+#python is basically object oriented programing laungauge here in pyhon everything is object 
+# and these objects work with clasess
+# now question is what is classes let discuss suppose we have some files in one folder and some other files in another folder 
+# and we have to merge both the files from those folders we need to creae a class so that all are files will comes in a single files/folder
+#and to get all files in a single files/folder we have to use oops
+# lets clarify suppose you want to built a house but before building a hose you have to make a design
+# on a paper where you draw where you put switch board, doors, windows, bathroom and all 
+# So that paper is a blue print of your house which is called class.
+# and what ever we mention door, switch board, windows bathroom which is called function
+# once to use those classes and function which is called Object
+# keyword for using classes is called class
+#syntax
+class class1:
+    def fun1(a,b):
+        return a+b
+    def fun2(r):
+        return 2*r
+# so here you can see i defined a class called class1 and inside i defined two function now i have to call the functions but in class we can not 
+# call function directly, to call then we have to define a Object
+obj1 = class1()
+obj1.fun1(4,6)
+# so now you can see this is a error that takes to positional argument but 3 were given but that is not true, we took only 2
+# arguments not the three how we can resolve this issue, this issue can be reolve by passine self-- instnace variable
+#syntax
+class class1:
+    def fun1(self,a,b):
+        return a+b
+    def fun2(r):
+        return 2*r
+obj1 = class1()
+obj1.fun1(4,6)
+
+# now you can see our object printed perfectly instead of self we can put any letter since self is a instance variable
+class class1:
+    def fun1(r,a,b):
+        return a+b
+    def fun2(s,r):
+        return 2*r
+obj1 = class1()
+obj1.fun1(4,6)
+print(obj1.fun1(4,6))
+obj2 = class1()
+obj2.fun2(7)
+
+# global variable --> this type of variable available globally and not accessible if local define function
+#local variable --> local variable accessible locally
+# for example
+class cal:
+    a = 20
+    b = 40
+    def add(self, r, w):
+        return r+w
+    def sub(self):
+        s = self.b-self.a
+        return s
+c1 = cal()
+c1.sub()
+c2 = cal()
+c2.add(4, 5)
+
+#contructor:- use for defining global variables
+#inheritence:- parent class: from where you are going to use function
+#              child class:- where you are going to those functions
+# lets understand what is constructor and what is inheritence from and example
+# class ABC:
+    a = 90
+    b = 80
+    add()
+    mul()
+class class2:
+    div()
+    sub()
+
+# i took 2 global variables a and b in class ABC and those variables we want to use in class2 so instead of adding thm agin we can use it that method called 
+#inheritence and instead of deninif a and b we can use constructor like this def __init__(self): now we can learn more on this into next tests examples
+
+
+
+class ABC:
+    def __init__(self):
+        self.a = 90
+        self.b = 80
+    def fun1(self, y):
+        return y +self.a - self.b
+obj = ABC()
+obj.fun1(4)
+
+class person:
+    def __init__(self, n, a):
+        self.name = n
+        self.age = a
+    def display(self):
+        print('Name of the person: ', self.name)
+        print('Age of the person: ', self.age)
+obj = person('Rohit', 38)
+obj.display()
+
+#Inheritence --> The Capablity of one class to inherit or drive the properties from another class.
+# there are two class in Inheritence 1. parent class 2. child class
+#Parent class -- From where I want to use my functions
+#child class -- to where we want to use my function inhetited from parent class.
+#example
+class A:
+    a = 20
+    def
+
+#Types
+#singel Inheritence --- one parent class and one child class
+
+class basic:
+    def __init__(self):
+        self.p = 'Myroutine'
+    def myfun(self):
+        print('This is my parent class', self.p)
+class child(basic):
+    def __init__(self):
+        super().__init__()
+        #basic.__init__(self)
+    def fun2(self):
+        print('This is my child function')
+        self.p
+        self.myfun()
+
+call = child()
+call.fun2()
+
+#multiple inheritence ---multiple parent classes ---single child class
+class learner:
+    def __init__(self):
+        print('You are in learner stage')
+    def fun1(self):
+        print('this is the first parent class')
+class expert:
+    def __init__(self):
+        print('you are now in level expert')
+    def fun2(self):
+        print('This is 2nd parent class')
+class master(learner,expert):
+    def __init__(self):
+        learner.__init__(self) #calling first class
+        expert.__init__(self) #calling 2nd class
+        print('This is the child class')
+        self.fun1()
+        self.fun2()
+obj = master()
+
+#Multi level inheritence follow the hirercy e.g grandfather ---father --child
+# class A = grandfather
+# class B(A) = father
+#class c(B) = child
+class A:
+    def __init__(rohit):
+        print('This is class A')
+class B(A):
+    def __init__(rohit):
+        A.__init__(rohit)
+        print('This is class B')
+class c(B):
+    def __init__(rohit):
+        B.__init__(rohit)
+        print('This is class c')
+test = c()
+
+#Hybrid Inheritence
+class A:
+    def __init__(self):
+        print('this is class A')
+class B:
+    def __init__(self):
+        print('This is class B')
+class c(A,B):
+    def __init__(self):
+        A.__init__(self)
+        B.__init__(self)
+        print('This is class c')
+class d(c):
+    def __init__(self):
+        super().__init__()
+        print('this is child class')
+obj1 = c()
+
+#polymorphism
+# poly means many
+#morphism means forms
+# so polymorphism means mayforms
+# method/function overloading   ---A particular things can have many different structures with the same name
+# so in python overoading not supported because when you assign new value in same name of function it will just overright with the new value
+#method/function overriding
+#examples
+
+    def fun12(a,b):
+        return a+b
+    def fun1(a,b,c):
+        return a+b-c
+obj = fun1(10,20,30)
+
+#Encapsulation ---it is called binding all data togather
+# putting all the function in a single class that is encapsulation
+class Rohit:
+    def fun1(self):
+        print('this is function1')
+    def fun2(self):
+        print('this is function2')
+    def fun3(self):
+        self.fun2()
+        print('this is function3')
+
+obj1 = Rohit()
+obj1.fun1()
+obj1.fun2()
+obj1.fun3()
+
