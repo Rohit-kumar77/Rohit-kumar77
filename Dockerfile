@@ -1,3 +1,4 @@
+#below is the docker file for nvidia drivers
 from nvcr.io/nvidia/tensorrt:19.10-py3
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
