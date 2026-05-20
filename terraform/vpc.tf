@@ -1,10 +1,10 @@
 terraform {
-   required_providers {
+  required_providers {
     aws = {
-        source = "hasicorp/aws"
-        version = "~> 5.0"
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
-   } 
+  }
 }
 
 provider "aws"{
@@ -18,7 +18,7 @@ resource "aws_vpc" "demo_vpc"{
 
 resource "aws_subnet" "public_subnet"{
     vpc_id = aws_vpc.demo_vpc
-    cidr_block = 10.10.0.0/24    
+    cidr_block = "10.10.0.0/24"    
 }
 
 resource "aws_subnet" "private_subnet" {
