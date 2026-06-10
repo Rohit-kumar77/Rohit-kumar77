@@ -1,0 +1,5 @@
+bucket = "terrafor-rohit-test"
+     key = "state.tfstate"
+     region = "us-east-2
+
+#run this command terraform init -backend-config= dev.s3.backend
