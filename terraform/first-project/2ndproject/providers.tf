@@ -11,6 +11,11 @@ terraform {
     }
   }
 
+  backend "s3"{
+     bucket = "terrafor-rohit-test"
+     key = "state.tfstate"
+     region = "us-east-2"
+  }
 }
 
 provider "aws" {
