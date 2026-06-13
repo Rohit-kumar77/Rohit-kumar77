@@ -36,6 +36,11 @@ resource "aws_route_table" "public" {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.main.vpc_id
 
+    tags = {
+        Name  = "06-resource-main"
+        ManagedBy = "Terraform"
+        Project   = "06-resource"
+      }
     }
 }
 
