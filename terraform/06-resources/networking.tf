@@ -19,3 +19,7 @@ resource "aws_subnet" "pubic"{
         Project   = "06-resource"
     }
 }
+
+provider "aws" {
+    region = "us-east-2"
+}
