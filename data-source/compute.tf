@@ -24,12 +24,22 @@ output "test" {
 }
    
 
-#data "aws_caller_identity" "current"{ }
+data "aws_caller_identity" "current"{ }
 
-#data "aws_region" "current" {
-#    provider = aws.us_east
-#}
+data "aws_region" "current" {
+    provider = aws.us_east
+}
 
-#output "ubuntu_ami_data" {
-#    value = data.aws_ami.ubuntu.id
-#}
+data "aws_vpc" "prod_vpc" {
+    tags = {
+        Env = "Prod"
+    }
+}
+
+output "prod_vpc_id" {
+    value = data.aws_vpc.prod_vpc.id 
+}
+
+output "ubuntu_ami_data" {
+    value = data.aws_ami.ubuntu.id
+}
